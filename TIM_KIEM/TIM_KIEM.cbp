@@ -32,7 +32,6 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="input.txt" />
-		<Unit filename="input1.txt" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
