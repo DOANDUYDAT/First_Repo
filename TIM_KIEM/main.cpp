@@ -10,8 +10,8 @@ fstream fileInPut;
 void InPut();
 int nhap_key();
 int tim_kiem_tuan_tu(int key);
-int tim_kiem_nhi_phan1(int key); ///cai dat voi de quy
-int tim_kiem_nhi_phan2(int key); ///cai dat voi vong lap
+int tim_kiem_nhi_phan1(int key); ///cai dat voi vong lap
+int tim_kiem_nhi_phan2(int key, int l, int r); ///cai dat voi de quy
 
 int main()
 {
