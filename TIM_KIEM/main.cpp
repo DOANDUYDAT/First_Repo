@@ -19,9 +19,8 @@ int main()
     string f1, f2;
 
     f1 = "input.txt";
-    f2 = "input1.txt";
 
-    fileInPut.open(&f2[0], ios::out);
+    fileInPut.open(&f1[0], ios::in);
     if(fileInPut.fail()){
         cout << "cannot open this file" << endl;
         exit(1);
@@ -31,15 +30,15 @@ int main()
     nhap_key();
 
     start = clock();
-    tim_kiem_tuan_tu(key);
+    cout << tim_kiem_tuan_tu(key);
     cout << clock() - start << endl;
 
     start = clock();
-    tim_kiem_nhi_phan1(key);
+    cout << tim_kiem_nhi_phan1(key);
     cout << clock() - start << endl;
 
     start = clock();
-    tim_kiem_nhi_phan2(key, 0, n - 1);
+    cout << tim_kiem_nhi_phan2(key, 0, n - 1);
     cout << clock() - start << endl;
 
     fileInPut.close();
@@ -49,7 +48,7 @@ int main()
 void InPut()
 {
     for (int i = 0; i < 1000; i++){
-        fileInPut << keys[i];
+        fileInPut >> keys[i];
     }
 }
 int nhap_key()
@@ -62,7 +61,7 @@ int nhap_key()
 int tim_kiem_tuan_tu(int key)
 {
     for (int i = 0; i < n; i++){
-        if (keys[i] = key) return i;
+        if (keys[i] == key) return i;
     }
     return -1;
 }
