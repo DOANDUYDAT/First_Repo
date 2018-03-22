@@ -11,11 +11,11 @@ void InPut();
 int nhap_key();
 int tim_kiem_tuan_tu(int key);
 int tim_kiem_nhi_phan1(int key); ///cai dat voi vong lap
-//int tim_kiem_nhi_phan2(int key, int l, int r); ///cai dat voi de quy
+int tim_kiem_nhi_phan2(int key, int l, int r); ///cai dat voi de quy
 
 int main()
 {
-    clockid_t start, finish;
+    clockid_t start;
     string f1, f2;
 
     f1 = "input.txt";
@@ -29,17 +29,17 @@ int main()
     InPut();
     nhap_key();
 
-    start = finish = clock();
+    start = clock();
     cout << tim_kiem_tuan_tu(key);
-    cout << finish - start << endl;
+    cout << " with time is " << clock() - start << endl;
 
-    start = finish = clock();
+    start = clock();
     cout << tim_kiem_nhi_phan1(key);
-    cout << finish - start << endl;
+    cout << " with time is " << clock() - start << endl;
 
-//    start = finish = clock();
-//    cout << tim_kiem_nhi_phan2(key, 0, n - 1);
-//    cout << clock() - start << endl;
+    start = clock();
+    cout << tim_kiem_nhi_phan2(key, 0, n - 1);
+    cout << " with time is " << clock() - start << endl;
 
     fileInPut.close();
     return 0;
@@ -61,7 +61,7 @@ int nhap_key()
 int tim_kiem_tuan_tu(int key)
 {
     for (int i = 0; i < n; i++){
-        if (keys[i] == key) return i;
+        if (keys[i] == key) return i + 1;
     }
     return -1;
 }
@@ -70,7 +70,7 @@ int tim_kiem_nhi_phan1(int key)
 {
     int l = 0;
     int r = n - 1;
-    while (l <= r){
+    while (l < r) {
         int m = (l + r) / 2;
         if (keys[m] == key)
             return m;
@@ -82,14 +82,15 @@ int tim_kiem_nhi_phan1(int key)
     return -1;
 }
 
-//int tim_kiem_nhi_phan2(int key, int l, int r)
-//{
-//    int m = (l + r) / 2;
-//    if (keys[m] == key)
-//        return m;
-//    else if (keys[m] < key)
-//        return tim_kiem_nhi_phan2(key, l, m-1);
-//    else
-//        return tim_kiem_nhi_phan2(key, m + 1, r);
-//    return -1;
-//}
+int tim_kiem_nhi_phan2(int key, int l, int r)
+{
+    int m = (l + r) / 2;
+    if (keys[m] == key)
+        return m;
+    if (l == r)
+        return -1;
+    else if (keys[m] < key)
+        return tim_kiem_nhi_phan2(key, l, m-1);
+    else
+        return tim_kiem_nhi_phan2(key, m + 1, r);
+}
