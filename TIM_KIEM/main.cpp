@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define n 1000
+#define n 10000
 
 int key;
-int keys[10000];
+int keys[10005];
 fstream fileInPut;
 
 void InPut();
@@ -22,7 +22,7 @@ int main()
 
     fileInPut.open(&f1[0], ios::in);
     if(fileInPut.fail()){
-        cout << "cannot open this file" << endl;
+        cout << " khong mo duoc " << endl;
         exit(1);
     }
 
@@ -30,16 +30,19 @@ int main()
     nhap_key();
 
     start = clock();
-    cout << tim_kiem_tuan_tu(key);
-    cout << " with time is " << clock() - start << endl;
+    cout << " vi tri " << tim_kiem_tuan_tu(key);
+    cout << " thoi gian chay ";
+    printf("%.6f\n", (float)(clock() - start)/CLOCKS_PER_SEC);
 
     start = clock();
-    cout << tim_kiem_nhi_phan1(key);
-    cout << " with time is " << clock() - start << endl;
+    cout << " vi tri " << tim_kiem_nhi_phan1(key);
+    cout << " thoi gian chay ";
+    printf("%.6f\n", (float)(clock() - start)/CLOCKS_PER_SEC);
 
     start = clock();
-    cout << tim_kiem_nhi_phan2(key, 0, n - 1);
-    cout << " with time is " << clock() - start << endl;
+    cout << " vi tri " << tim_kiem_nhi_phan2(key, 0, n);
+    cout << " thoi gian chay ";
+    printf("%.6f\n", (float)(clock() - start)/CLOCKS_PER_SEC);
 
     fileInPut.close();
     return 0;
@@ -47,7 +50,7 @@ int main()
 
 void InPut()
 {
-    for (int i = 0; i < 1000; i++){
+    for (int i = 0; i < n; i++){
         fileInPut >> keys[i];
     }
 }
@@ -70,11 +73,11 @@ int tim_kiem_nhi_phan1(int key)
 {
     int l = 0;
     int r = n - 1;
-    while (l < r) {
+    while (l <= r ) {
         int m = (l + r) / 2;
         if (keys[m] == key)
-            return m;
-        else if (keys[m] < key){
+            return m + 1;
+        else if (keys[m] > key){
             r = m - 1;
         }
         else l = m + 1;
@@ -86,11 +89,11 @@ int tim_kiem_nhi_phan2(int key, int l, int r)
 {
     int m = (l + r) / 2;
     if (keys[m] == key)
-        return m;
-    if (l == r)
+        return m + 1;
+    if (l > r)
         return -1;
-    else if (keys[m] < key)
-        return tim_kiem_nhi_phan2(key, l, m-1);
+    else if (keys[m] > key)
+        return tim_kiem_nhi_phan2(key, l, m - 1);
     else
         return tim_kiem_nhi_phan2(key, m + 1, r);
 }
