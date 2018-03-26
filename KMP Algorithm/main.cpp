@@ -3,31 +3,58 @@ using namespace std;
 
 char text[] = "coca like cocacola, cocala very like cocacola";
 char pattern[] = "cocacola";
+int *pre;
 
-char compute_Preffix(char pattern);
-int KMP(char pattern, char text);
+int* compute_Prefix(char pattern[]);
+int KMP(char pattern[], char text[]);
 
 int main()
 {
-//    KMP(pattern, text);
+    KMP(pattern, text);
     return 0;
 }
 
-char* compute_Peffix(char pattern)
+int* compute_Prefix(char pattern[])
 {
-    int len = pattern;
+    int len = strlen(pattern);
     int a, b;
-    int *Preffix;
-    Preffix[0] = 0;
+    pre[0] = 0;
     a = 0;
-    for (b = 1; b < length; b++){
-        while (a > 0 && strcmp(pattern[b], pattern[a + 1]) != 0){
-            a = Preffix[a];
+    for (b = 1; b < len; b++){
+        while ((a > 0) && (pattern[b] != pattern[a + 1])){
+            a = pre[a];
         }
-        if (strcmp(pattern[b], pattern[a + 1]) == 0){
+        if (pattern[b] == pattern[a + 1]){
             a = a + 1;
         }
-        Preffix[b] = a;
+        pre[b] = a;
     }
-    return Preffix;
+    return pre;
+}
+
+int KMP(char pattern[], char text[])
+{
+    int i, j, k;
+    int len = strlen(pattern);
+    int n = strlen(text);
+    i = j = k = 0;
+    while ((n - k) >= len){
+        while ((j <= len) && (pattern[j] == text[i])){
+            i++;
+            j++;
+        }
+        if (j > len) return k;
+        if (pattern[j - 1] > 0){
+            k = i - pre[j - 1];
+        }
+        else{
+            if (i == k){
+                i++;
+            }
+            k = i;
+        }
+        if (j > 1){
+            j = pre[j - 1] + 1;
+        }
+    }
 }
