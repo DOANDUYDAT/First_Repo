@@ -1,60 +1,64 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#define len(a) sizeof(a)/sizeof(a[0])
 char text[] = "coca like cocacola, cocala very like cocacola";
 char pattern[] = "cocacola";
-int *pre;
+int *pref;
 
 int* compute_Prefix(char pattern[]);
 int KMP(char pattern[], char text[]);
 
 int main()
 {
-    KMP(pattern, text);
+    cout << len(pattern);
+    pref = compute_Prefix(pattern);
+
+    cout << KMP(pattern, text) << endl;
     return 0;
 }
 
 int* compute_Prefix(char pattern[])
 {
-    int len = strlen(pattern);
-    int a, b;
-    pre[0] = 0;
-    a = 0;
-    for (b = 1; b < len; b++){
-        while ((a > 0) && (pattern[b] != pattern[a + 1])){
-            a = pre[a];
+    int m = len(pattern);
+    int prefix[m];
+    prefix[0] = -1;
+    int i = -1;
+    for (int j = 1; j < m; j++){
+        while ((i > -1) && (pattern[j] != pattern[i + 1])){
+            i = prefix[i];
         }
-        if (pattern[b] == pattern[a + 1]){
-            a = a + 1;
+        if (pattern[j] == pattern[i + 1]){
+            i++;
         }
-        pre[b] = a;
+        prefix[j] = i;
     }
-    return pre;
+    return prefix;
 }
 
 int KMP(char pattern[], char text[])
 {
+    int m = len(pattern);
+    int n = len(text);
     int i, j, k;
-    int len = strlen(pattern);
-    int n = strlen(text);
     i = j = k = 0;
-    while ((n - k) >= len){
-        while ((j <= len) && (pattern[j] == text[i])){
+    while (n >= m){
+        while ((j <= m) && (pattern[j] == text[i])){
             i++;
             j++;
         }
-        if (j > len) return k;
-        if (pattern[j - 1] > 0){
-            k = i - pre[j - 1];
+        if (j > m) return k;
+        if (pref[j - 1] > -1){
+            k = i - pref[j - 1];
         }
         else{
             if (i == k){
-                i++;
+                i = i + 1;
             }
             k = i;
         }
-        if (j > 1){
-            j = pre[j - 1] + 1;
+        if (j > 0){
+            j = pref[j - 1] + 1;
         }
     }
 }
