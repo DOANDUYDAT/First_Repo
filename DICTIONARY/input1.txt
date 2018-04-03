@@ -1,0 +1,15 @@
+apple=qua tao
+an=mot
+a= mot
+air= khong khi
+blue= mau xanh
+bill= hoa don
+back= quay lai
+branch= nhanh
+count= dem
+call= goi
+can= co the
+cut= cat
+do= lam
+did= da lam
+dictionary= tu dien

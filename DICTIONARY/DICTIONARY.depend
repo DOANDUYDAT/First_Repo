@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1522770233 source:d:\1\code blocks\dictionary\main.cpp
+	<bits/stdc++.h>
+	"trie.h"
+	"mapped.h"
+
+1522770886 d:\1\code blocks\dictionary\trie.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<conio.h>
+	<string>
+
+1522664992 d:\1\code blocks\dictionary\mapped.h
+	<map>
+	<string>
+
