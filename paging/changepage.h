@@ -6,18 +6,18 @@
 using namespace std;
 
 //extern int LOGICPAGE, PHYSICFRAME, MAXN;
-typedef struct pageControlBlock{
+typedef struct pageControlBlock {
     int mark;
     int location;
     int loadTime;
-}PCB;
+} PCB;
 
 /** first in first out **/
 void fifo(int temp[], PCB pcb[], int PHYSICFRAME, int k, int cnt);
 /** **/
 void opt();
 /** least recently used **/
-void lru();
+void lru(int temp[], PCB pcb[], int PHYSICFRAME, int k, int cnt);
 /** least frequently used **/
 void lfu();
 /** most frequently used **/

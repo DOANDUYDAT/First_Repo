@@ -33,6 +33,8 @@
 		</Compiler>
 		<Unit filename="changepage.h" />
 		<Unit filename="fifo.cpp" />
+		<Unit filename="input.txt" />
+		<Unit filename="lru.cpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

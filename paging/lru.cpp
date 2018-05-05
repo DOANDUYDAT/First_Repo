@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void fifo(int temp[], PCB pcb[], int PHYSICFRAME, int k, int cnt)
+void lru(int temp[], PCB pcb[], int PHYSICFRAME, int k, int cnt)
 {
     int i, h, min;
     min = pcb[temp[0]].loadTime;
@@ -19,4 +19,3 @@ void fifo(int temp[], PCB pcb[], int PHYSICFRAME, int k, int cnt)
     pcb[k].mark = 1;
     pcb[k].loadTime = cnt;
 }
-
