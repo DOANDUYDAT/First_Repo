@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1525516945 source:d:\1\code blocks\paging\main.cpp
+	<bits/stdc++.h>
+	"changepage.h"
+
+1525516005 d:\1\code blocks\paging\changepage.h
+	<bits/stdc++.h>
+
+1525516262 source:d:\1\code blocks\paging\fifo.cpp
+	<bits/stdc++.h>
+	"changepage.h"
+
