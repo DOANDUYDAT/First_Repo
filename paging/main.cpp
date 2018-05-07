@@ -1,5 +1,7 @@
+
 #include <bits/stdc++.h>
 #include "changepage.h"
+
 
 using namespace std;
 
@@ -25,15 +27,16 @@ int main()
 //    cout << "number of allocated physical frames: ";
 //    cin >> physicframe;
     int i, j, k, cnt;
+    iterable_queue<int> int_queue;
 
     /** random a implement serie **/
-//    for (i = 0; i < MAXN; ++i){
-//        implement[i] = rand() % LOGICPAGE;
-//    }
-    freopen("input.txt", "r", stdin);
-    for(i = 0; i< 20; i++) {
-        cin >> implement[i];
+    for (i = 0; i < MAXN; ++i){
+        implement[i] = rand() % LOGICPAGE;
     }
+//    freopen("input.txt", "r", stdin);
+//    for(i = 0; i< 20; i++) {
+//        cin >> implement[i];
+//    }
     for (i = 0; i< MAXN; ++i) {
         cout << implement[i] << " ";
     }
@@ -46,6 +49,7 @@ int main()
     for (i = 0; i < PHYSICFRAME; ++i) {
         k = implement[i];
         cnt++;
+        int_queue.push(k);
         temp[i] = k;
         pcb[k].mark = 1;
         pcb[k].loadTime = cnt;
@@ -64,15 +68,18 @@ int main()
         k = implement[i];
         if(pcb[k].mark == 0) {
             cnt++;
-            fifo(temp, pcb, PHYSICFRAME, k, cnt);
+            fifo(int_queue, pcb, k);
         } else if (pcb[k].mark == 1) {
             cnt++;
-            pcb[k].loadTime = cnt; /** neu co dong nay thi fifo chay giong lru**/
+//            pcb[k].loadTime = cnt; /** neu co dong nay thi fifo giong lru**/
         }
-        cout << "PAGE" << endl;
-        for (j = 0; j < PHYSICFRAME; ++j) {
-            cout << temp[j] << "\n";
-        }
+//        cout << "PAGE" << endl;
+//        for (j = 0; j < PHYSICFRAME; ++j) {
+//            cout << temp[j] << "\n";
+//        }
+cout << "PAGE" << endl;
+for(auto it=int_queue.begin(); it!=int_queue.end();++it)
+        std::cout << *it << "\n";
 //        cout << "\t";
     }
     return 0;

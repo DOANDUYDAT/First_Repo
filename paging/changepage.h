@@ -2,6 +2,7 @@
 /** cac chien luoc doi trang **/
 
 #include <bits/stdc++.h>
+#include "dequeue.h"
 
 using namespace std;
 
@@ -13,7 +14,7 @@ typedef struct pageControlBlock {
 } PCB;
 
 /** first in first out **/
-void fifo(int temp[], PCB pcb[], int PHYSICFRAME, int k, int cnt);
+void fifo(iterable_queue<int> &int_queue, PCB pcb[], int k);
 /** **/
 void opt();
 /** least recently used **/

@@ -32,6 +32,7 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="changepage.h" />
+		<Unit filename="dequeue.h" />
 		<Unit filename="fifo.cpp" />
 		<Unit filename="input.txt" />
 		<Unit filename="lru.cpp" />

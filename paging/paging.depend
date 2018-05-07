@@ -1,16 +1,22 @@
 # depslib dependency file v1.0
-1525529985 source:d:\1\code blocks\paging\main.cpp
+1525707390 source:d:\1\code blocks\paging\main.cpp
 	<bits/stdc++.h>
 	"changepage.h"
 
-1525530085 d:\1\code blocks\paging\changepage.h
+1525707469 d:\1\code blocks\paging\changepage.h
 	<bits/stdc++.h>
+	"dequeue.h"
 
-1525529414 source:d:\1\code blocks\paging\fifo.cpp
+1525706278 source:d:\1\code blocks\paging\fifo.cpp
 	<bits/stdc++.h>
 	"changepage.h"
 
 1525530085 source:d:\1\code blocks\paging\lru.cpp
 	<bits/stdc++.h>
 	"changepage.h"
+
+1525707210 d:\1\code blocks\paging\dequeue.h
+	<queue>
+	<deque>
+	<iostream>
 

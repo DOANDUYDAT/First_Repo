@@ -3,20 +3,26 @@
 
 using namespace std;
 
-void fifo(int temp[], PCB pcb[], int PHYSICFRAME, int k, int cnt)
+//queue<int> fifout, tempo;
+
+void fifo(iterable_queue<int> &int_queue, PCB pcb[],int k)
 {
-    int i, h, min;
-    min = pcb[temp[0]].loadTime;
-    /// tim page duoc nap vao dau tien trong bang quan ly trang temp[]
-    for (i = 1; i < PHYSICFRAME; ++i) {
-        if (min > pcb[temp[i]].loadTime) {
-            min = pcb[temp[i]].loadTime;
-            h = i;
-        }
-    }
-    pcb[temp[h]].mark = 0;
-    temp[h] = k;
+   int h;
+//   iterator:: it;
+
+    h = int_queue.front();
+    pcb[h].mark = 0;
+    int_queue.pop();
+    int_queue.push(k);
     pcb[k].mark = 1;
-    pcb[k].loadTime = cnt;
+//    cout << "PAGE" << endl;
+//    tempo = fifout;
+
+//    while(!fifout.empty()){
+//        int q = fifout.front();
+//        fifout.pop();
+//        cout << q << "\n";
+//    }
+
 }
 
