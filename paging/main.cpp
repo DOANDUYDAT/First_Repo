@@ -58,8 +58,9 @@ int main()
     }
     cout << "\nPAGE\n";
     for (j = 0; j < PHYSICFRAME; ++j) {
-        cout << temp[j] << "\n";
+        cout << temp[j] << " ";
     }
+    cout << endl;
 //    cout << "\n\n\n";
     /** allocate memory for the other pages in the implement **/
 //    cout << "PAGE" << endl;
@@ -68,18 +69,19 @@ int main()
         k = implement[i];
         if(pcb[k].mark == 0) {
             cnt++;
-            fifo(int_queue, pcb, k);
+            lru(temp, pcb, PHYSICFRAME, k, cnt);
         } else if (pcb[k].mark == 1) {
             cnt++;
-//            pcb[k].loadTime = cnt; /** neu co dong nay thi fifo giong lru**/
+            pcb[k].loadTime = cnt; /** neu co dong nay thi fifo giong lru**/
         }
-//        cout << "PAGE" << endl;
-//        for (j = 0; j < PHYSICFRAME; ++j) {
-//            cout << temp[j] << "\n";
-//        }
-cout << "PAGE" << endl;
-for(auto it=int_queue.begin(); it!=int_queue.end();++it)
-        std::cout << *it << "\n";
+        cout << "PAGE" << endl;
+        for (j = 0; j < PHYSICFRAME; ++j) {
+            cout << temp[j] << " ";
+        }
+        cout << endl;
+//cout << "PAGE" << endl;
+//for(auto it=int_queue.begin(); it!=int_queue.end();++it)
+//        std::cout << *it << " ";
 //        cout << "\t";
     }
     return 0;

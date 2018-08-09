@@ -20,3 +20,24 @@
 	<deque>
 	<iostream>
 
+1525707469 source:d:\duy dat doan\github\first_repo\paging\fifo.cpp
+	<bits/stdc++.h>
+	"changepage.h"
+
+1525707469 d:\duy dat doan\github\first_repo\paging\changepage.h
+	<bits/stdc++.h>
+	"dequeue.h"
+
+1525707210 d:\duy dat doan\github\first_repo\paging\dequeue.h
+	<queue>
+	<deque>
+	<iostream>
+
+1525530085 source:d:\duy dat doan\github\first_repo\paging\lru.cpp
+	<bits/stdc++.h>
+	"changepage.h"
+
+1525969759 source:d:\duy dat doan\github\first_repo\paging\main.cpp
+	<bits/stdc++.h>
+	"changepage.h"
+
